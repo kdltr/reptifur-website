@@ -1,0 +1,268 @@
+()
+(let* ((base03    "#002b36") ; dark background
+       (base02    "#073642") ; dark background highlights
+       (base01    "#586e75") ; dark secondary content / light optional emphasized content
+       (base00    "#45545a") ; light primary content (default #657b83)
+       (base0     "#839496") ; dark primary content
+       (base1     "#93a1a1") ; light secondary content / dark optional emphasized content
+       (base2     "#F8F4DD") ; light background highlights (default #eee8d5
+       (base3     "#fdfaf1") ; light background (default #fdf6e3)
+       (white     "#ffffff")
+       (yellow    "#b58900")
+       (orange    "#cb4b16")
+       (red       "#dc322f")
+       (magenta   "#d33682")
+       (violet    "#6c71c4")
+       (blue      "#268bd2")
+       (cyan      "#2aa198")
+       (green     "#859900")
+       (serif-font "\"Liberation Serif\", serif")
+       (sans-font  "\"Liberation Sans\", sans-serif")
+       (mono-font  "\"Liberation Mono\", monospace")
+
+       (bg 'white)
+       (header-bg 'black)
+       (bg-highlight base2)
+       (secondary-content base1)
+       (primary-content base00)
+       (optional-content base01)
+       (index-color red)
+       (gallery-color orange)
+       (contact-color violet)
+       (navigation-font sans-font)
+       (content-font sans-font)
+       (code-font mono-font))
+  `(css+
+
+     ,@(call-with-input-file "resources/reset.scss" read)
+
+     (body
+       (background-color ,bg)
+       (color ,primary-content)
+       (font-family ,navigation-font)
+       (font-size 12pt)
+       ;; (max-width 50em)
+       ;; (margin-left auto)
+       ;; (margin-right auto)
+       ;; (padding-left 0.2em)
+       ;; (padding-right 0.2em)
+       ;; (padding-top 4ex)
+
+       ((> header)
+        (padding-top 1ex)
+        (padding-bottom 1ex)
+         (width 100%)
+         (display table)
+         (background-color ,header-bg)
+         (color ,optional-content)
+         (margin auto)
+
+         ((> span)
+          (font-size 100%)
+          (font-size 2em)
+          ;; (width 25%)
+          (display table-cell)
+          (vertical-align middle)
+          ;;(float left)
+          (padding-left 10%)
+           ((& :after)
+              (content "\"\"")
+              (display inline-block)
+              (width 71px)
+              (height 58px)
+              (vertical-align middle)
+              (margin-left 0.5rem)
+              (background-image ,(file-data-url "image/png"
+                                                "resources/miniloutre.png"))))
+
+         ((> nav)
+          ;; (width 75%)
+          ;; (float right)
+          
+          (display table-cell)
+          (text-align right)
+          (vertical-align middle)
+          (padding-top 1ex)
+          (padding-right 10%)
+          ((> a)
+           (text-decoration none)
+           (display inline-block)
+           (border-width 1px)
+           (border-style solid)
+           (border-radius 5px)
+           (padding 0.5em)
+           (margin-left 1em)
+           (margin-bottom 0.5em)
+           )))
+
+       ((> footer)
+         (font-size 0.8em)
+         (padding-top 2ex)
+         (text-align right)
+         (color ,secondary-content)))
+
+     (main
+       ;; (padding-top 5%)
+       (font-family ,content-font)
+       (clear both)
+
+       ((> nav)
+         (text-align right))
+
+       ((> article)
+         (max-width 40em)
+         (margin-left auto)
+         (margin-right auto)
+
+         ((> aside)
+           (margin-top -2.5ex)
+           (margin-left 2ex)
+           (float right)
+           (color ,secondary-content)
+           (font-size 0.8em)
+
+           ((> p)
+             (line-height 2.5ex)
+             (margin-top 0)
+             (margin-bottom 0)
+             (text-align right)))))
+
+     (|#contact-link|
+       (color ,contact-color)
+       (((& :hover) (& |.selected|))
+         (border-color ,contact-color)
+         (color ,bg-highlight)
+         (background-color ,contact-color)))
+     (|#posts-title|
+       (background-color ,contact-color))
+
+     (|#index-link|
+       (color ,index-color)
+       (((& :hover) (& |.selected|))
+         (border-color ,index-color)
+         (color ,bg-highlight)
+         (background-color ,index-color)))
+     (|#index-title|
+       (background-color ,index-color))
+     #;
+     (|#drawings-link|
+     (color ,drawings-color)
+     (((& :hover) (& |.selected|))
+     (border-color ,drawings-color)
+     (color ,bg-highlight)
+     (background-color ,drawings-color)))
+     #;
+     (|#drawings-title|
+     (background-color ,drawings-color))
+     #;
+     (|#music-link|
+     (color ,music-color)
+     (((& :hover) (& |.selected|))
+     (border-color ,music-color)
+     (color ,bg-highlight)
+     (background-color ,music-color)))
+     #;
+     (|#music-title|
+     (background-color ,music-color))
+     (|#gallery-link|
+      (color ,gallery-color)
+      (((& :hover) (& |.selected|))
+       (border-color ,gallery-color)
+       (color ,bg-highlight)
+       (background-color ,gallery-color)))
+     (|#gallery-title|
+      (background-color ,gallery-color))
+
+     #;
+     (|#previous-link|
+     (text-align right))
+     #;
+     (|#next-link|
+     (text-align right))
+     
+     ((h1 h2 h3 h4 h5 h6)
+      (color ,optional-content)
+      (margin-bottom 1ex)
+      (margin-top 2ex))
+
+     (h1
+      (font-size 2.5em)
+      (color ,bg-highlight)
+      (padding 0.5ex)
+      (border-radius 1px))
+
+     (h2
+      (font-size 2em)
+      (padding-bottom 0.5ex)
+      (border-bottom-width 1px)
+      (border-bottom-style solid)
+      (border-bottom-color ,secondary-content))
+
+     (h3
+      (font-size 1.8em))
+
+     (h4
+      (font-size 1.6em))
+
+     (h5
+      (font-size 1.4em))
+
+     (p
+      (margin-top 2ex)
+      (margin-bottom 2ex)
+      (line-height 3ex)
+      (text-align justify))
+
+     (a
+      (color ,blue)
+      (text-decoration underline))
+
+     ((ol ul)
+      (margin-bottom 0.2em)
+      (margin-top 0.2em)
+      (list-style-position inside))
+
+     (ul
+      (list-style-type circle))
+     (ol
+      (list-style-type lower-latin))
+     (li
+      (margin-left 1em)
+      (line-height 3ex))
+
+     (em
+      (font-style italic))
+
+     (strong
+      (font-weight bold))
+     
+     #;
+     (|#toc|
+     ((// ol)
+     (list-style-type upper-roman)))
+
+     ;; Line wrapping in <pre><code/></pre>
+     ((> pre code)
+      (display block)
+      (padding 0.5em)
+      (white-space pre-wrap))
+     
+     ;; Syntax highlighting in <code/>
+     (code
+      (font-family ,code-font)
+      (background-color ,bg-highlight))
+      
+     ((= class "default") (color ,primary-content))
+     ((= class "symbol") (color ,cyan))
+     ((= class "string") (color ,green))
+     ((= class "paren1") (color ,yellow))
+     ((= class "paren2") (color ,violet))
+     ((= class "paren3") (color ,red))
+     ((= class "paren4") (color ,blue))
+     ((= class "paren5") (color ,orange))
+     ((= class "paren6") (color ,magenta))
+
+     ;; Article-wide images
+     ((= class "fill") (width 100%))))
+
+; vi: set ft=scheme:
