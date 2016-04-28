@@ -1,29 +1,29 @@
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { 
-    margin: 0; 
-    padding: 0; 
-    border: 0; 
-    font-size: 100%; 
-    font: inherit; 
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
     vertical-align: baseline
 }
-article, aside, details, figcaption, figure, main, header, hgroup, menu, nav, section { 
+article, aside, details, figcaption, figure, main, header, hgroup, menu, nav, section {
     display: block
 }
-body { 
+body {
     line-height: 1
 }
-ol, ul { 
+ol, ul {
     list-style: none
 }
-blockquote, q { 
+blockquote, q {
     quotes: none
 }
-blockquote:before, blockquote:after, q:before, q:after { 
-                                                   content: ""; 
+blockquote:before, blockquote:after, q:before, q:after {
+                                                   content: "";
                                                    content: none
                                                }
-table { 
-    border-collapse: collapse; 
+table {
+    border-collapse: collapse;
     border-spacing: 0
 }
 
@@ -86,90 +86,88 @@ main > article > div {
     margin-left: auto;
     margin-right: auto;
 }
-#index-link { 
+#index-link {
     color: #F6414C
 }
-#index-link:hover, #index-link.selected { 
-    border-color: #F6414C; 
-    color: #F8F4DD; 
+#index-link:hover, #index-link.selected {
+    border-color: #F6414C;
+    color: #F8F4DD;
     background-color: #F6414C
 }
-#index-title { 
+#index-title {
     nbackground-color: #DA4148
 }
-#gallery-link { 
+#gallery-link {
     color: #45BB37
 }
-#gallery-link:hover, #gallery-link.selected { 
-    border-color: #45BB37; 
-    color: #F8F4DD; 
+#gallery-link:hover, #gallery-link.selected {
+    border-color: #45BB37;
+    color: #F8F4DD;
     background-color: #45BB37
 }
-#gallery-title { 
+#gallery-title {
     background-color: #51DA41
 }
-#about-link { 
+#about-link {
     color: #5097FF
 }
-#about-link:hover, #about-link.selected { 
-    border-color: #5097FF; 
-    color: #F8F4DD; 
+#about-link:hover, #about-link.selected {
+    border-color: #5097FF;
+    color: #F8F4DD;
     background-color: #5097FF
 }
-h1, h2, h3, h4, h5, h6 { 
-    color: #586e75; 
-    margin-bottom: 1ex; 
-    margin-top: 2ex
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 1ex;
+    margin-top: 1ex
 }
-h1 { 
-    font-size: 2.5em; 
-    color: #F8F4DD; 
-    padding: 0.5ex; 
+h1 {
+    font-size: 2.5em;
+    padding: 0.5ex;
     border-radius: 1px
 }
-h2 { 
-    font-size: 2em; 
-    padding-bottom: 0.5ex; 
-    border-bottom-width: 1px; 
-    border-bottom-style: solid; 
+h2 {
+    font-size: 2em;
+    padding-bottom: 0.5ex;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
     border-bottom-color: #93a1a1
 }
-h3 { 
+h3 {
     font-size: 1.8em
 }
-h4 { 
+h4 {
     font-size: 1.6em
 }
-h5 { 
+h5 {
     font-size: 1.4em
 }
-p { 
-    margin-bottom: 1ex; 
-    line-height: 2.5ex; 
+p {
+    margin-bottom: 1ex;
+    line-height: 2.5ex;
 }
-a { 
+a {
     color: #00E00A;
     text-decoration: underline
 }
-ol, ul { 
-    margin-bottom: 0.2em; 
-    margin-top: 0.2em; 
+ol, ul {
+    margin-bottom: 0.2em;
+    margin-top: 0.2em;
     list-style-position: inside
 }
-ul { 
+ul {
     list-style-type: circle
 }
-ol { 
+ol {
     list-style-type: lower-latin
 }
-li { 
-    margin-left: 1em; 
+li {
+    margin-left: 1em;
     line-height: 3ex
 }
-em { 
+em {
     font-style: italic
 }
-strong { 
+strong {
     font-weight: bold
 }
 #gallery {

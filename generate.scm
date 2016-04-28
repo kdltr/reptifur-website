@@ -50,11 +50,11 @@
     (html (@ (xmlns "http://www.w3.org/1999/xhtml")
              (xml:lang "fr"))
           (head
-           (title "Le titre de Reptifur - " ,(title))
+           (title "Reptifur - " ,(title))
            (meta (@ (name viewport) (content "initial-scale=1.0"))))
           (body
            (header
-            (a (@ (href "/index.xhtml")) "Le titre de Reptifur")
+            (a (@ (href "/index.xhtml")) "Reptifur")
             (nav
              (a (@ (href "/index.xhtml")
                    (id "index-link")
