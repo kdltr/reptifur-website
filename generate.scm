@@ -1,14 +1,15 @@
 (use srfi-1 sxml-transforms files lowdown anaphora vector-lib)
 (use imlib2)
 
-(define max-side 320)
+(define max-thumb-height 250)
+(define max-height 1500)
 
-(define (scale img)
+(define (scale img h)
   (let* ((width (image-width img))
          (height (image-height img))
-         (factor (ceiling (/ (max width height) max-side)))
-         (new-width (quotient width factor))
-         (new-height (quotient height factor)))
+         (factor (/ height h))
+         (new-width (ceiling (/ width factor)))
+         (new-height h))
     (image-scale img (inexact->exact new-width) (inexact->exact new-height))))
 
 (define (scale-file path)
@@ -16,7 +17,9 @@
         (destination (pathname-replace-extension
                       path
                       (string-append ".min." (pathname-extension path)))))
-    (image-save (scale source) destination)))
+    (image-save (scale source max-thumb-height) destination)
+    (unless (< (image-height source) max-height)
+      (image-save (scale source max-height) path))))
 
 
 
@@ -71,13 +74,13 @@
 (define (title-page)
   (parameterize
       ((title "Accueil")
-       (contents `(article ,(call-with-input-file "index.md" markdown->sxml))))
+       (contents `(article (div ,(call-with-input-file "index.md" markdown->sxml)))))
     (page-template)))
 
 (define (about-page)
   (parameterize
       ((title "À Propos")
-       (contents `(article ,(call-with-input-file "about.md" markdown->sxml))))
+       (contents `(article (div ,(call-with-input-file "about.md" markdown->sxml)))))
     (page-template)))
 
 
@@ -91,28 +94,28 @@
     (page-template)))
 
 (define (gallery-item src)
-  (let* ((img (scale-file (make-pathname '("out" "gallery") src)))
-         (width (image-width img))
-         (height (image-height img)))
+  (let ((gif? (string=? "gif" (pathname-extension src))))
+    (unless gif?
+      (scale-file (make-pathname '("out" "gallery") src)))
     `(li (@ (class "gallery-item"))
          (a (@ (href "gallery/" ,src ".xhtml"))
             (img (@ (class "gallery-image")
                     (id ,src)
-                    (width ,width)
-                    (height height)
-                    (src "gallery/" ,(pathname-replace-extension src (string-append ".min." (pathname-extension src))))))))))
+                    (src "gallery/" ,(if gif? src (pathname-replace-extension src (string-append ".min." (pathname-extension src)))))))))))
 
 
 (define (image-page src prev next)
-  (parameterize
-      ((title "Portfolio")
-       (contents
-        `(article
-          ,(and prev `(a (@ (href ,prev ".xhtml")) "Précédente"))
-          (a (@ (href "../gallery.xhtml#" ,src))
-             (img (@ (id "image") (src ,src))))
-          ,(and next `(a (@ (href ,next ".xhtml")) "Suivante")))))
-    (page-template)))
+  `((*PI* xml (version "1.0") (encoding "utf-8"))
+    (*PI* xml-stylesheet (type "text/css") (href "/style.css"))
+    (html (@ (xmlns "http://www.w3.org/1999/xhtml")
+             (xml:lang "fr"))
+          (head
+           (title ,src)
+           (meta (@ (name viewport) (content "initial-scale=1.0"))))
+          (body
+           (main
+            (a (@ (href "../gallery.xhtml#" ,src))
+               (img (@ (id "image") (src ,src)))))))))
 
 
 (define (generate-page file data)
@@ -120,7 +123,8 @@
     (lambda () (SRV:send-reply (pre-post-order* data conversion-rules)))))
 
 
-(file-copy "style.css" (make-pathname "out" "style.css"))
+(file-copy "style.css" (make-pathname "out" "style.css") #t)
+(file-copy "portrait.png" (make-pathname "out" "portrait.png") #t)
 (generate-page (make-pathname "out" "index.xhtml") (title-page))
 (generate-page (make-pathname "out" "about.xhtml") (about-page))
 
@@ -130,7 +134,7 @@
   (let ((images (list->vector images)))
     (vector-for-each
      (lambda (i src)
-       (let ((dest (make-pathname '("out" "gallery") src)))
+       (let* ((dest (make-pathname '("out" "gallery") src)))
          (file-copy (make-pathname "gallery" src) dest #t))
        (generate-page (make-pathname '("out" "gallery") src "xhtml")
                       (image-page (string-append src)
