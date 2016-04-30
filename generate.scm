@@ -54,7 +54,8 @@
            (meta (@ (name viewport) (content "initial-scale=1.0"))))
           (body
            (header
-            (a (@ (href "/index.xhtml")) "Reptifur")
+            (a (@ (href "/index.xhtml"))
+               (img (@ (src "logo.png"))))
             (nav
              (a (@ (href "/index.xhtml")
                    (id "index-link")
@@ -83,6 +84,11 @@
        (contents `(article (div ,(call-with-input-file "about.md" markdown->sxml)))))
     (page-template)))
 
+(define (pricesheet-page)
+  (parameterize
+      ((title "Price sheet")
+       (contents `(article (div ,(call-with-input-file "pricesheet.md" markdown->sxml)))))
+    (page-template)))
 
 (define (gallery-page images)
   (parameterize
@@ -112,7 +118,7 @@
           (head
            (title ,src)
            (meta (@ (name viewport) (content "initial-scale=1.0"))))
-          (body
+          (body (@ (style "overflow: visible;"))
            (main
             (a (@ (href "../gallery.xhtml#" ,src))
                (img (@ (id "image") (src ,src)))))))))
@@ -125,8 +131,10 @@
 
 (file-copy "style.css" (make-pathname "out" "style.css") #t)
 (file-copy "portrait.png" (make-pathname "out" "portrait.png") #t)
+(file-copy "logo.png" (make-pathname "out" "logo.png") #t)
 (generate-page (make-pathname "out" "index.xhtml") (title-page))
 (generate-page (make-pathname "out" "about.xhtml") (about-page))
+(generate-page (make-pathname "out" "pricesheet.xhtml") (pricesheet-page))
 
 (let* ((images (directory "gallery"))
        (n (length images)))

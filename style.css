@@ -32,6 +32,7 @@ body {
     background-color: #454545;
     color: #111;
     font-family: "Liberation Sans", sans-serif;
+    overflow: scroll;
     font-size: 14pt
 }
 body > header {
@@ -49,6 +50,9 @@ body > header > a {
     padding-left: 10%;
     color: #B5B5B5;
     text-decoration: none;
+}
+body > header > a > img {
+    max-height: 3.5em
 }
 body > header > nav {
     display: table-cell;
@@ -116,14 +120,9 @@ main > article > div {
     color: #F8F4DD;
     background-color: #5097FF
 }
-h1, h2, h3, h4, h5, h6 {
-    margin-bottom: 1ex;
-    margin-top: 1ex
-}
 h1 {
     font-size: 2.5em;
     padding: 0.5ex;
-    border-radius: 1px
 }
 h2 {
     font-size: 2em;
@@ -142,8 +141,8 @@ h5 {
     font-size: 1.4em
 }
 p {
-    margin-bottom: 1ex;
-    line-height: 2.5ex;
+    margin-bottom: 2ex;
+    line-height: 3ex;
 }
 a {
     color: #00E00A;
