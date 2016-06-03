@@ -87,7 +87,8 @@
 (define (pricesheet-page)
   (parameterize
       ((title "Price sheet")
-       (contents `(article (div ,(call-with-input-file "pricesheet.md" markdown->sxml)))))
+       (contents `(article (@ (id "pricesheet"))
+                           ,(call-with-input-file "pricesheet.md" markdown->sxml))))
     (page-template)))
 
 (define (gallery-page images)
@@ -132,6 +133,8 @@
 (file-copy "style.css" (make-pathname "out" "style.css") #t)
 (file-copy "portrait.png" (make-pathname "out" "portrait.png") #t)
 (file-copy "logo.png" (make-pathname "out" "logo.png") #t)
+(file-copy "pricesheet.png" (make-pathname "out" "pricesheet.png") #t)
+(file-copy "pricesheet.jpeg" (make-pathname "out" "pricesheet.jpeg") #t)
 (generate-page (make-pathname "out" "index.xhtml") (title-page))
 (generate-page (make-pathname "out" "about.xhtml") (about-page))
 (generate-page (make-pathname "out" "pricesheet.xhtml") (pricesheet-page))

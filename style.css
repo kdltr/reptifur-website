@@ -169,8 +169,22 @@ em {
 strong {
     font-weight: bold
 }
-#gallery {
-
+#pricesheet {
+    text-align: left;
+    padding: 2em 5ex
+}
+#pricesheet-image {
+    max-width: 100%;
+}
+#pricesheet > p {
+    margin: 1ex 0 1ex 0
+}
+#pricesheet > h1 {
+    padding: 0 0 0.5ex 0
+}
+#pricesheet > h2 {
+    padding: 0.25ex 0 0.15ex 0;
+    border: none
 }
 #gallery-list {
     text-align: center;
