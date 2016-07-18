@@ -71,11 +71,15 @@
                 "Portfolio")
              (a (@ (href ,(langify "/pricesheet" ".xhtml"))
                    (id "pricesheet-link")
-                   ,(selected "Price sheet"))
-                "Pricesheet")
-             ))
+                   ,(selected (i18n-if "Pricesheet" "Grille tarifaire")))
+                ,(i18n-if "Pricesheet" "Grille tarifaire")))
+            )
            (main
-            ,(contents))))))
+            ,(contents))
+           (footer
+            (a (@ (href ,(i18n-if "/index.fr.xhtml" "/index.en.xhtml"))
+                  (xml:lang ,(i18n-if "fr" "en")))
+               ,(i18n-if "Version française" "English version")))))))
 
 (define (title-page)
   (parameterize
@@ -85,7 +89,7 @@
 
 (define (pricesheet-page)
   (parameterize
-      ((title "Price sheet")
+      ((title (i18n-if "Pricesheet" "Grille tarifaire"))
        (contents `(article (@ (id "pricesheet"))
                            (p (a (@ (href ,(langify "pricesheet" ".jpeg")))
                                  (img (@ (id "pricesheet-image")

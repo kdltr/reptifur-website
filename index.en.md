@@ -4,20 +4,16 @@ Hello and welcome on my freelance illustrator’s portfolio.
 
 I’m **Reptifur**, a 26 years old French artist.
 
-TODO TRADUCTITION
-=================
+I’m specialized in the making of **animals** and **anthropomorphic** characters drawings and my style is *cartoon*.
 
-Je me suis spécialisé dans le dessin d'**animaux** et de personnages **anthropomorphes**
-et mon style de prédilection est le **cartoon**.
+Here you’ll find a selection of my works and informations to contact me.
 
-Vous pourrez trouver ici une selection de mes travaux et des informations pour me contacter.
+Don’t hesitate to ask me if you need a mascot, illustrations, logos, business cards, goodies (stickers, badges, keyrings, magnets, etc.).
 
-Pour la création de mascottes, illustrations, logos, cartes de visite, produits dérivés (autocollants, badges, portes-clefs, aimants, etc.) n'hésitez pas à me demander.
+For private individuals who want to order me a commission, you can follow this link: [Pricesheet and terms of service](/pricesheet.en.xhtml).
 
-Pour les particuliers qui souhaiteraient me passer commande d'un dessin, vous pouvez suivre le lien : [Grille tarifaire et conditions d'utilisation](/pricesheet.en.xhtml)
-
-Vous pouvez me contacter à l'adresse mail suivante :  
+You can contact me at the following address:  
 [contact@repti.fr](mailto:contact@repti.fr)
 
-Si vous souhaitez suivre mon travail, vous pouvez me retrouver sur :  
+If you want to follow my work, you can also find me on:  
 [DeviantArt](https://reptifur.deviantart.com) - [Facebook](https://www.facebook.com/reptifur) - [Twitter](https://twitter.com/Reptifur)
