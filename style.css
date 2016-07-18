@@ -112,10 +112,10 @@ main > article > div {
 #gallery-title {
     background-color: #51DA41
 }
-#about-link {
+#pricesheet-link {
     color: #5097FF
 }
-#about-link:hover, #about-link.selected {
+#pricesheet-link:hover, #pricesheet-link.selected {
     border-color: #5097FF;
     color: #F8F4DD;
     background-color: #5097FF

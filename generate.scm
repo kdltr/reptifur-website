@@ -60,15 +60,16 @@
              (a (@ (href "/index.xhtml")
                    (id "index-link")
                    ,(selected "Accueil"))
-                "Accueil")
+                "À Propos")
              (a (@ (href "/gallery.xhtml")
                    (id "gallery-link")
                    ,(selected "Portfolio"))
                 "Portfolio")
-             (a (@ (href "/about.xhtml")
-                   (id "about-link")
-                   ,(selected "À Propos"))
-                "À Propos")))
+             (a (@ (href "/pricesheet.xhtml")
+                   (id "pricesheet-link")
+                   ,(selected "Price sheet"))
+                "Pricesheet")
+             ))
            (main
             ,(contents))))))
 
@@ -76,12 +77,6 @@
   (parameterize
       ((title "Accueil")
        (contents `(article (div ,(call-with-input-file "index.md" markdown->sxml)))))
-    (page-template)))
-
-(define (about-page)
-  (parameterize
-      ((title "À Propos")
-       (contents `(article (div ,(call-with-input-file "about.md" markdown->sxml)))))
     (page-template)))
 
 (define (pricesheet-page)
@@ -130,13 +125,13 @@
     (lambda () (SRV:send-reply (pre-post-order* data conversion-rules)))))
 
 
+(create-directory "out")
 (file-copy "style.css" (make-pathname "out" "style.css") #t)
 (file-copy "portrait.png" (make-pathname "out" "portrait.png") #t)
 (file-copy "logo.png" (make-pathname "out" "logo.png") #t)
 (file-copy "pricesheet.png" (make-pathname "out" "pricesheet.png") #t)
 (file-copy "pricesheet.jpeg" (make-pathname "out" "pricesheet.jpeg") #t)
 (generate-page (make-pathname "out" "index.xhtml") (title-page))
-(generate-page (make-pathname "out" "about.xhtml") (about-page))
 (generate-page (make-pathname "out" "pricesheet.xhtml") (pricesheet-page))
 
 (let* ((images (directory "gallery"))
