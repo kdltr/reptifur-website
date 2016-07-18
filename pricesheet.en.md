@@ -1,5 +1,3 @@
-<a href="pricesheet.jpeg"><img id="pricesheet-image" src="pricesheet.png" alt="pricesheet" title="Please, read my ToS below."/></a>
-
 Reptifur’s Terms of Services.
 =============================
 
