@@ -85,7 +85,7 @@ Vous n'êtes **PAS** autorisé à :
 * retirer la signature
 * diffuser la version haute résolution de votre commande, ou une version plus haute résolution que la version web fournie.
 * utiliser votre commande à des fins commerciales ou lucratives.
-* Mettre votre commande sur des sites internet du type Society6 ou Redbubble.
+* mettre votre commande sur des sites internet du type Society6 ou Redbubble.
 
 Cependant, je peux accepter de céder une partie de mes droits pour une localisation géographique et une durée limitées en échange d'une contrepartie financière. Merci de me contacter à [contact@repti.fr](mailto:contact@repti.fr).
 
