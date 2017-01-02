@@ -72,8 +72,7 @@
              (a (@ (href ,(langify "/pricesheet" ".xhtml"))
                    (id "pricesheet-link")
                    ,(selected (i18n-if "Pricesheet" "Grille tarifaire")))
-                ,(i18n-if "Pricesheet" "Grille tarifaire")))
-            )
+                ,(i18n-if "Pricesheet" "Grille tarifaire"))))
            (main
             ,(contents))
            (footer

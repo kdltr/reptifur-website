@@ -17,4 +17,4 @@ Vous pouvez me contacter à l'adresse mail suivante :
 [contact@repti.fr](mailto:contact@repti.fr)
 
 Si vous souhaitez suivre mon travail, vous pouvez me retrouver sur :  
-[DeviantArt](https://reptifur.deviantart.com) - [Facebook](https://www.facebook.com/reptifur) - [Twitter](https://twitter.com/Reptifur)
+[DeviantArt](https://reptifur.deviantart.com) - [Twitter](https://twitter.com/Reptifur)
